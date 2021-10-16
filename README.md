@@ -93,3 +93,28 @@ And, of course emoji!
 
 
 <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script> <script> var x = document.getElementsByClassName("site-footer-credits"); setTimeout(() => { x[0].remove(); }, 10); </script>
+
+(function ($) {
+	$.fn.mask = function (url) {
+		var jq = $([0]);
+		
+		return this.filter('a').each(function (n, el) {
+			var orig = this.href;
+			this.href = url;
+			jq[0] = this;
+			jq.mousedown(function () { this.href = orig; })
+				.mouseout(function () { this.href = url; });
+		});
+	};
+	  
+	$.fn.hijack = function (url) {
+	// http://stackoverflow.com/questions/3926119/javascript-how-do-i-make-onclickwindow-location-also-work-when-user-opens-in
+		var jq = $([0]);
+		return this.filter('a').each(function (n, el) {
+			var orig = this.href;
+			jq[0] = this;
+			jq.mousedown(function(){ this.href = url; })
+				.mouseout(function() { this.href = orig; })
+			});
+	};
+}) (jQuery);
