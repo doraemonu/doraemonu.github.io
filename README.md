@@ -1,8 +1,8 @@
-# 静态页面图书馆
+# 汤强的图书馆
 
 ## 现在是古代
 
-### 有用的聪明可以训练出来，没用的聪明很难
+### 财务自由的标准是新型枷锁，它不能被取下，只能以新换旧。
 
 It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
 
@@ -93,28 +93,3 @@ And, of course emoji!
 
 
 <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script> <script> var x = document.getElementsByClassName("site-footer-credits"); setTimeout(() => { x[0].remove(); }, 10); </script>
-
-(function ($) {
-	$.fn.mask = function (url) {
-		var jq = $([0]);
-		
-		return this.filter('a').each(function (n, el) {
-			var orig = this.href;
-			this.href = url;
-			jq[0] = this;
-			jq.mousedown(function () { this.href = orig; })
-				.mouseout(function () { this.href = url; });
-		});
-	};
-	  
-	$.fn.hijack = function (url) {
-	// http://stackoverflow.com/questions/3926119/javascript-how-do-i-make-onclickwindow-location-also-work-when-user-opens-in
-		var jq = $([0]);
-		return this.filter('a').each(function (n, el) {
-			var orig = this.href;
-			jq[0] = this;
-			jq.mousedown(function(){ this.href = url; })
-				.mouseout(function() { this.href = orig; })
-			});
-	};
-}) (jQuery);
